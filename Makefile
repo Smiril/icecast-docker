@@ -1,4 +1,4 @@
-VERSIONS = 2.4.4 2.5.0
+VERSIONS = 2.5.0
 LIBIGLOO_VERSION=0.9.5
 
 TARBALLS = $(foreach version,$(VERSIONS),icecast-$(version).tar.gz)

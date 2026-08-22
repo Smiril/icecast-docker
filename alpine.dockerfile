@@ -31,14 +31,14 @@ RUN autoreconf -fi && \
 
 WORKDIR /build
 ADD icecast-$VERSION.tar.gz .
-RUN if test ! -d icecast-$VERSION; then mv icecast-* icecast-$VERSION; fi
+RUN if test ! -d icecast-$VERSION; then mkdir -p /build && cd /build && git clone https://github.com/xpih/Icecast-Server.git icecast; fi
 
-WORKDIR /build/icecast-$VERSION
-RUN ./configure \
+WORKDIR /build/icecast
+RUN /build/icecast/autogen.sh \
     --prefix=/usr \
     --sysconfdir=/etc \
     --localstatedir=/var
-
+RUN /build/icecast/configure
 RUN make
 RUN make install DESTDIR=/build/output
 
@@ -60,6 +60,7 @@ ENV USER=icecast
 RUN adduser --disabled-password --gecos '' --no-create-home $USER
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY icecast.xml /etc/icecast.xml
 COPY xml-edit.sh /usr/local/bin/xml-edit
 RUN chmod +x \
     /usr/local/bin/docker-entrypoint \

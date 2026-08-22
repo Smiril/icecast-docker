@@ -31,7 +31,7 @@ RUN autoreconf -fi && \
 
 WORKDIR /build
 ADD icecast-$VERSION.tar.gz .
-RUN if test ! -d icecast-$VERSION; then mkdir /build && cd /build && git clone --recursive https://github.com/xiph/Icecast-Server.git icecast; fi
+RUN if test ! -d icecast-$VERSION; then mkdir -p /build && cd /build && git clone --recursive https://github.com/xiph/Icecast-Server.git icecast; fi
 
 WORKDIR /build/icecast
 RUN /build/icecast/autogen.sh \

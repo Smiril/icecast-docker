@@ -31,14 +31,14 @@ RUN autoreconf -fi && \
 
 WORKDIR /build
 ADD icecast-$VERSION.tar.gz .
-RUN if test ! -d icecast-$VERSION; then mv icecast-* icecast-$VERSION; fi
+RUN if test ! -d icecast-$VERSION; then mkdir /build && cd /build && git clone --recursive https://github.com/xiph/Icecast-Server.git icecast; fi
 
-WORKDIR /build/icecast-$VERSION
-RUN ./configure \
+WORKDIR /build/icecast
+RUN /build/icecast/autogen.sh \
     --prefix=/usr \
     --sysconfdir=/etc \
     --localstatedir=/var
-
+RUN /build/icecast/configure
 RUN make
 RUN make install DESTDIR=/build/output
 

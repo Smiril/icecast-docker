@@ -60,6 +60,7 @@ ENV USER=icecast
 RUN adduser --disabled-password --gecos '' --no-create-home $USER
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY icecast.xml /etc/icecast.xml
 COPY xml-edit.sh /usr/local/bin/xml-edit
 RUN chmod +x \
     /usr/local/bin/docker-entrypoint \

@@ -28,10 +28,10 @@ checksum:
 
 $(VERSIONS): $(TARBALLS) lfs-check checksum
 	docker build \
-		--file debian.dockerfile \
+		--file alpine.dockerfile \
 		--pull \
 		--tag $(IMAGE):main \
-		--tag $(IMAGE):$@-debian \
+		--tag $(IMAGE):$@-alpine \
 		--build-arg VERSION=$@ \
 		--build-arg LIBIGLOO_VERSION=$(LIBIGLOO_VERSION) \
 		.

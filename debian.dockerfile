@@ -60,8 +60,9 @@ RUN apt-get install -y --no-install-recommends -t trixie-backports \
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV USER=icecast
+ENV DOMAIN=localhost
 
-RUN useradd --no-create-home $USER
+RUN adduser --disabled-password --gecos '' --no-create-home $USER
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 SHELL ["/bin/bash", "-c"]
@@ -73,9 +74,9 @@ RUN openssl req \
 -newkey rsa:2048 \
 -nodes \
 -sha256 \
--subj "/CN=localhost" \
+-subj "/CN=$DOMAIN" \
 -extensions EXT \
--config <(printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+-config <(printf "[dn]\nCN=$DOMAIN\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:$DOMAIN\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint

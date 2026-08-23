@@ -57,6 +57,17 @@ Or you can mount your own configuration file in the container:
 ```bash
 docker run -d \
     -p 8000:8000 \
-    -v ./icecast.xml:/etc/icecast.xml \
-    libretime/icecast:2.5.0
+    -v /full/path/icecast.xml:/etc/icecast.xml \
+    -v /full/path/cert.pem:/etc/cert.pem \
+    -v /full/path/key.pem:/etc/key.pem \
+    libretime/icecast:2.5.0-alpine
+```
+
+```bash
+docker run -d \
+    -p 8000:8000 \
+    -v /full/path/icecast.xml:/etc/icecast.xml \
+    -v /full/path/cert.pem:/etc/cert.pem \
+    -v /full/path/key.pem:/etc/key.pem \
+    libretime/icecast:2.5.0-debian
 ```

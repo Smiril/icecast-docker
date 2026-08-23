@@ -59,6 +59,20 @@ ENV USER=icecast
 
 RUN adduser --disabled-password --gecos '' --no-create-home $USER
 
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+SHELL ["/bin/bash", "-c"]
+RUN echo "$(openssl version)"
+RUN openssl req \
+-x509 \
+-out /etc/cert.pem \
+-keyout /etc/key.pem \
+-newkey rsa:2048 \
+-nodes \
+-sha256 \
+-subj "/CN=localhost" \
+-extensions EXT \
+-config <(printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY icecast.xml /etc/icecast.xml
 COPY xml-edit.sh /usr/local/bin/xml-edit

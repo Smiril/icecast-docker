@@ -22,7 +22,7 @@ lfs-check:
         done
 
 checksum:
-				sha512sum --ignore-missing --check SHA512SUMS.txt
+		sha512sum --ignore-missing --check SHA512SUMS.txt
 
 $(VERSIONS): $(TARBALLS) lfs-check checksum
         docker build \

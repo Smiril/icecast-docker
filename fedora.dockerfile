@@ -48,25 +48,6 @@ RUN /build/icecast/configure
 RUN make
 RUN make install DESTDIR=/build/output
 
-FROM fedora:latest
-SHELL ["/bin/bash", "-c"]
-RUN export FEDORA_FRONTEND=noninteractive
-RUN dnf -y update
-RUN dnf install -y --skip-unavailable \
-    ca-certificates \
-    media-types \
-    libcurl4 \
-    libogg0 \
-    libspeex1 \
-    libssl3t64 \
-    libtheora0 \
-    libvorbis0a \
-    libxml2  \
-    libxslt1.1 \
-    librhash1 \
-    libigloo0t64
-RUN rm -rf /var/lib/dnf/lists/*
-
 ENV USER=icecast
 RUN groupadd --gid 1011 $USER
 RUN useradd -g $USER -s /bin/bash -r -M $USER

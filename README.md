@@ -33,7 +33,7 @@ The following icecast tags are **not supported** anymore:
 > You can use the following command to get an image sha256 digest:
 >
 > ```bash
-> docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/libretime/icecast:2.4.4
+> docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/libretime/icecast:2.5.0
 > ```
 
 The default configuration file (`/etc/icecast.xml`) was updated with following changes:

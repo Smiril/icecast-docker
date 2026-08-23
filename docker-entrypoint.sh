@@ -31,5 +31,11 @@ fi
 if [ -n "$ICECAST_MAX_SOURCES" ]; then
   edit_icecast_config sources "$ICECAST_MAX_SOURCES"
 fi
+if [ -n "$ICECAST_TLS_CERT" ]; then
+  edit_icecast_config tls-certificate "$ICECAST_TLS_CERT"
+fi
+if [ -n "$ICECAST_TLS_KEY" ]; then
+  edit_icecast_config tls-key "$ICECAST_TLS_KEY"
+fi
 
 exec "$@"

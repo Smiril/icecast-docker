@@ -12,7 +12,7 @@ ALPINE_TARGETS = $(addprefix alpine-,$(VERSIONS))
 all: build alpine debian fedora ubuntu
 
 lfs-check:
-        @for tarball in $(TARBALLS); do \
+				@for tarball in $(TARBALLS); do \
                 if [ ! -f "$$tarball" ]; then \
                         continue; \
                 fi; \
@@ -25,7 +25,7 @@ lfs-check:
         done
 
 checksum:
-        sha512sum --ignore-missing --check SHA512SUMS.txt
+				sha512sum --ignore-missing --check SHA512SUMS.txt
 
 $(VERSIONS): $(TARBALLS) lfs-check checksum
         docker build \

@@ -67,6 +67,7 @@
     <listen-socket>
         <port>8000</port>
         <tls>1</tls>
+        <tls>auto_no_plain</tls>
         <!-- <bind-address>127.0.0.1</bind-address> -->
         <!-- <shoutcast-mount>/stream</shoutcast-mount> -->
     </listen-socket>

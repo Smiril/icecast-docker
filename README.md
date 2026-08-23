@@ -51,6 +51,8 @@ You can tweak the configuration using the following environment variables:
 - `ICECAST_HOSTNAME`
 - `ICECAST_MAX_CLIENTS`
 - `ICECAST_MAX_SOURCES`
+- `ICECAST_TLS_CERT`
+- `ICECAST_TLS_KEY`
 
 Or you can mount your own configuration file in the container:
 
@@ -66,8 +68,10 @@ docker run -d \
     -e ICECAST_HOSTNAME=hackme.org \
     -e ICECAST_MAX_CLIENTS=100 \
     -e ICECAST_MAX_SOURCES=2 \
-    -v /full/path/cert.pem:/etc/cert.pem \
-    -v /full/path/key.pem:/etc/key.pem \
+    -e ICECAST_TLS_CERT=mycert.pem \
+    -e ICECAST_TLS_KEY=mykey.pem \
+    -v /full/path/cert.pem:/etc/mycert.pem \
+    -v /full/path/key.pem:/etc/mykey.pem \
     libretime/icecast:2.5.0-alpine
 ```
 

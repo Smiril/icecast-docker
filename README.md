@@ -57,6 +57,15 @@ Or you can mount your own configuration file in the container:
 ```bash
 docker run -d \
     -p 8000:8000 \
+    -e ICECAST_SOURCE_PASSWORD=hackme \
+    -e ICECAST_RELAY_PASSWORD=hackme \
+    -e ICECAST_ADMIN_PASSWORD=hackme \
+    -e ICECAST_ADMIN_USERNAME=toor \
+    -e ICECAST_ADMIN_EMAIL=example@hackme.org \
+    -e ICECAST_LOCATION=Dallas \
+    -e ICECAST_HOSTNAME=hackme.org \
+    -e ICECAST_MAX_CLIENTS=100 \
+    -e ICECAST_MAX_SOURCES=2 \
     -v /full/path/icecast.xml:/etc/icecast.xml \
     -v /full/path/cert.pem:/etc/cert.pem \
     -v /full/path/key.pem:/etc/key.pem \

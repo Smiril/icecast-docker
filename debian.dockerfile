@@ -60,7 +60,6 @@ RUN apt-get install -y --no-install-recommends -t trixie-backports \
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV USER=icecast
-ENV DOMAIN=localhost
 
 RUN useradd -g $USER -s /bin/bash -M $USER
 

@@ -3,8 +3,8 @@
   <a href="//github.com/libretime/icecast-docker"><img src="https://img.shields.io/github/repo-size/libretime/icecast-docker"></a>
   <a href="//github.com/libretime/icecast-docker/commits"><img src="https://img.shields.io/github/last-commit/libretime/icecast-docker"></a>
   <a href="//github.com/libretime/icecast-docker/contributors"><img src="https://img.shields.io/github/contributors/libretime/icecast-docker"></a>
-  <a href="https://github.com/libretime/icecast-docker/.github/workflows/container.yml"><img src="https://github.com/libretime/icecast-docker/.github/workflows/container.yml/badge.svg"></a>
-  <a href="https://github.com/libretime/icecast-docker/.github/workflows/project.yml"><img src="https://github.com/libretime/icecast-docker/.github/workflows/project.yml/badge.svg"></a>
+  <a href="https://github.com/libretime/icecast-docker/actions/workflows/container.yml"><img src="https://github.com/libretime/icecast-docker/actions/workflows/container.yml/badge.svg"></a>
+  <a href="https://github.com/libretime/icecast-docker/actions/workflows/project.yml"><img src="https://github.com/libretime/icecast-docker/actions/workflows/project.yml/badge.svg"></a>
 </p>
 
 This [project](https://github.com/libretime/icecast-docker) provide icecast container images.

@@ -62,7 +62,7 @@ RUN rm -rf /var/lib/apt/lists/*
 ENV USER=icecast
 ENV DOMAIN=localhost
 
-RUN useradd -g icecast -s /bin/bash -M $USER
+RUN useradd -g $USER -s /bin/bash -M $USER
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 SHELL ["/bin/bash", "-c"]

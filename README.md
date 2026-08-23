@@ -66,7 +66,6 @@ docker run -d \
     -e ICECAST_HOSTNAME=hackme.org \
     -e ICECAST_MAX_CLIENTS=100 \
     -e ICECAST_MAX_SOURCES=2 \
-    -v /full/path/icecast.xml:/etc/icecast.xml \
     -v /full/path/cert.pem:/etc/cert.pem \
     -v /full/path/key.pem:/etc/key.pem \
     libretime/icecast:2.5.0-alpine

@@ -92,7 +92,7 @@ RUN chown $USER:$USER \
     /etc/cert.pem \
     /etc/key.pem
 
-COPY --from=builder /build/output /
+COPY --from=builder /build/output /usr/local/bin
 RUN xml-edit errorlog - /etc/icecast.xml
 
 RUN mkdir -p /var/log/icecast && \

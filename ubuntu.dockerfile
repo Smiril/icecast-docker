@@ -1,7 +1,6 @@
 FROM ubuntu:26.04@sha256:2260313b31c8c011cd2eebe728008efac1b3982be73eb71348ea2648d2c0e09b AS builder
 ARG VERSION
 SHELL ["/bin/bash", "-c"]
-RUN rm -rf /build
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN echo "deb http://archive.ubuntu.com/ubuntu resolute-backports main restricted universe multiverse" >/etc/apt/sources.list.d/resolute-backports.list
 RUN apt-get -y update

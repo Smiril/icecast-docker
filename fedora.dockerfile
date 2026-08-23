@@ -37,14 +37,9 @@ RUN rm -rf /var/lib/dnf/lists/*
 
 WORKDIR /build
 ADD icecast-$VERSION.tar.gz .
-RUN if test ! -d icecast-$VERSION; then mkdir -p /build && cd /build && git clone --recursive https://github.com/xiph/Icecast-Server.git icecast; fi
-
-WORKDIR /build/icecast
-RUN /build/icecast/autogen.sh \
-    --prefix=/usr \
-    --sysconfdir=/etc \
-    --localstatedir=/var
-RUN /build/icecast/configure
+RUN if test ! -d icecast-$VERSION; then cd /build && tar -xvzf icecast-$VERSION.tar.gz ; fi
+RUN if [ $VERSION == '2.5.0' ]; then /build/icecast-$VERSION/configure  --prefix=/usr  --sysconfdir=/etc  --localstatedir=/var ; fi
+RUN if [ $VERSION == '2.4.4' ]; then /build/icecast-$VERSION/configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var ; fi
 RUN make
 RUN make install DESTDIR=/build/output
 

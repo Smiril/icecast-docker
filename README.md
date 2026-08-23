@@ -19,6 +19,7 @@ docker run -d -p 8000:8000 ghcr.io/libretime/icecast:2.5.0
 The following icecast tags are supported:
 
 - `2.5.0-debian`, `2.5.0`, `debian`, `latest`
+- `2.5.0-ubuntu`, `ubuntu`
 - `2.5.0-alpine`, `alpine`
 
 The following icecast tags are **not supported** anymore:

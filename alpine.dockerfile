@@ -65,12 +65,19 @@ COPY xml-edit.sh /usr/local/bin/xml-edit
 RUN chmod +x \
     /usr/local/bin/docker-entrypoint \
     /usr/local/bin/xml-edit
+RUN chmod 0650 \
+    /etc/cert.pem \
+    /etc/key.pem
+
+RUN chown $USER:$USER \
+     /etc/cert.pem \
+     /etc/key.pem
 
 COPY --from=builder /build/output /
 RUN xml-edit errorlog - /etc/icecast.xml
 
 RUN mkdir -p /var/log/icecast && \
-    chown $USER /etc/icecast.xml /var/log/icecast
+    chown $USER:$USER /etc/icecast.xml /var/log/icecast
 
 EXPOSE 8000
 ENTRYPOINT ["docker-entrypoint"]

@@ -56,7 +56,6 @@ RUN apk --no-cache add \
     speex
 
 ENV USER=icecast
-ENV DOMAIN=localhost
 
 RUN adduser --disabled-password --gecos '' --no-create-home $USER
 
@@ -70,9 +69,9 @@ RUN openssl req \
 -newkey rsa:2048 \
 -nodes \
 -sha256 \
--subj "/CN=$DOMAIN" \
+-subj "/CN=localhost" \
 -extensions EXT \
--config <(printf "[dn]\nCN=$DOMAIN\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:$DOMAIN\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+-config <(printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY icecast.xml /etc/icecast.xml

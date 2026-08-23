@@ -12,15 +12,12 @@ ALPINE_TARGETS = $(addprefix alpine-,$(VERSIONS))
 all: build alpine debian fedora ubuntu
 
 lfs-check:
-				@for tarball in $(TARBALLS); do \
+        @for tarball in $(TARBALLS); do \
                 if [ ! -f "$$tarball" ]; then \
                         continue; \
                 fi; \
                 if sed -n '1p' "$$tarball" | grep -q '^version https://git-lfs.github.com/spec/v1$$'; then \
-                        echo "ERROR: $$tarball is a Git LFS pointer, not the real archive."; \
-                        echo "Run: git lfs pull"; \
-												 wget https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz && wget https://downloads.xiph.org/releases/icecast/icecast-2.5.0.tar.gz
-; \                        exit 1; \
+                        wget https://downloads.xiph.org/releases/icecast/$$tarball; \
                 fi; \
         done
 

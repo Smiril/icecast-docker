@@ -7,6 +7,7 @@ on:
       - .github/workflows/container.yml
       - alpine.dockerfile
       - debian.dockerfile
+      - fedora.dockerfile
       - ubuntu.dockerfile
       - docker-entrypoint.sh
       - Makefile
@@ -20,6 +21,7 @@ on:
       - .github/workflows/container.yml
       - alpine.dockerfile
       - debian.dockerfile
+      - fedora.dockerfile
       - ubuntu.dockerfile
       - docker-entrypoint.sh
       - Makefile
@@ -40,6 +42,7 @@ jobs:
           - 2.5.0
         variant:
           - ubuntu
+          - fedora
           - debian
           - alpine
 

@@ -71,6 +71,7 @@ docker run -d \
     -e ICECAST_MAX_CLIENTS=100 \
     -e ICECAST_MAX_SOURCES=2 \
     -e ICECAST_TLS_CERT=/etc/mycert.pem \
+    -e ICECAST_TLS_KEY=/etc/mykey.pem \
     -v /full/path/cert.pem:/etc/mycert.pem \
     -v /full/path/key.pem:/etc/mykey.pem \
     libretime/icecast:2.5.0-alpine

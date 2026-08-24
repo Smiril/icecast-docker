@@ -24,7 +24,7 @@ The following icecast tags are supported:
 - `2.5.0-alpine`, `alpine`
 - `2.4.4-alpine`, `alpine`
 - `2.4.4-debian`, `debian`
-- `2.4.4-fedora`, `fedora`
+- <del>`2.4.4-fedora`, `fedora`</del>
 - `2.4.4-ubuntu`, `ubuntu`
 
 The following icecast tags are **not supported** anymore:

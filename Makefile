@@ -62,7 +62,7 @@ build: $(VERSIONS)
 
 alpine: $(ALPINE_TARGETS)
 
-		$(ALPINE_TARGETS): $(TARBALLS) lfs-check checksum
+$(ALPINE_TARGETS): $(TARBALLS) lfs-check checksum
         docker build \
                 --file alpine.dockerfile \
                 --pull \
@@ -73,7 +73,7 @@ alpine: $(ALPINE_TARGETS)
 
 debian: $(DEBIAN_TARGETS)
 
-		$(DEBIAN_TARGETS): $(TARBALLS) lfs-check checksum
+$(DEBIAN_TARGETS): $(TARBALLS) lfs-check checksum
         docker build \
                 --file debian.dockerfile \
                 --pull \
@@ -84,7 +84,7 @@ debian: $(DEBIAN_TARGETS)
 
 fedora: $(FEDORA_TARGETS)
 
-		$(FEDORA_TARGETS): $(TARBALLS) lfs-check checksum
+$(FEDORA_TARGETS): $(TARBALLS) lfs-check checksum
         docker build \
                 --file fedora.dockerfile \
                 --pull \
@@ -95,7 +95,7 @@ fedora: $(FEDORA_TARGETS)
 
 ubuntu: $(UBUNTU_TARGETS)
 
-		$(UBUNTU_TARGETS): $(TARBALLS) lfs-check checksum
+$(UBUNTU_TARGETS): $(TARBALLS) lfs-check checksum
         docker build \
                 --file ubuntu.dockerfile \
                 --pull \

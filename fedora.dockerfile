@@ -45,7 +45,7 @@ RUN make install DESTDIR=/build/output
 
 ENV USER=icecast
 RUN groupadd --gid 1011 $USER
-RUN useradd -g $USER -s /bin/bash -r -M $USER
+RUN useradd -g $USER -s /usr/sbin/nologin -r -M $USER
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 SHELL ["/bin/bash", "-c"]
